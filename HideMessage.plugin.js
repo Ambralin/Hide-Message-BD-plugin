@@ -3,7 +3,7 @@
  * @author Ambralin
  * @authorLink https://github.com/ambralin
  * @description Hides messages locally
- * @version 1.1.0
+ * @version 1.2.0
 */
 
 running = false;
@@ -24,7 +24,7 @@ module.exports = class HideMessages {
                         if (target.firstChild.lastChild.classList.contains("hiddenMsg")) return;
                         var parentContainer = target.firstChild.lastChild.firstChild.firstChild;
                         if (!parentContainer.classList.contains("_5126c0cd07f243a0-buttonsInner")) return;
-                        if (parentContainer.children[7].classList.contains("hideButton")) return;
+                        if (parentContainer.firstChild.classList.contains("hideButton")) return;
                         addButton(parentContainer, messagecon);
                     } catch (e) {
                         console.log(e);
@@ -106,5 +106,5 @@ function addButton(con, mcon) {
     });
 
     // Add the button to the Discord interface
-    con.insertBefore(span, con.children[7]);
+    con.insertBefore(span, con.firstChild);
 }
